@@ -25,6 +25,4 @@ def webhook():
 		print(response.status)	
 	print("Recieved webhook")
 	return "OK",200
-
-
-app.run()
+app.run(host="192.168.100.25")
