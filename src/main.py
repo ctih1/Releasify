@@ -1,6 +1,7 @@
 from flask import Flask,request
 import dotenv
 import requests
+import json
 import os
 from configuration import Configurator
 import compiler
@@ -12,7 +13,9 @@ conf:Configurator =Configurator()
 
 @app.route("/webhook",methods=["POST"])
 def webhook():
+	with open("response.json","w") as f: json.dump(request.json,f)
 	if(request.json.get("action")=="published"): # if the release is published, not deleted or mdified
+     
 		id:int = int(request.json.get("release",{}).get("id",-1))
 		repo_username:str = str(request.json.get("repository",{}).get("full_name",""))
 		if(id==-1): return
@@ -34,4 +37,4 @@ def webhook():
 		print(response.status)	
 	print("Recieved webhook")
 	return "OK",200
-app.run(host="192.168.100.25")
+app.run()
