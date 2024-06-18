@@ -1,6 +1,7 @@
 import os
 
-def compile(filename:str,command:str)->None:
+def compile(command:str)->None:
+    print("Compiling")
     os.system(command)
 
         
