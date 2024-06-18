@@ -24,7 +24,7 @@ def webhook():
 		with open(conf_data.get("file"),"rb") as f:
 			filedata=f.read()
 		response=requests.post(
-			f"https://uploads.github.com/repos/{repo_username}/releases/{str(id)}/assets?name={conf_data.get("file")}",
+			f"https://uploads.github.com/repos/{repo_username}/releases/{str(id)}/assets?name={conf_data.get('file')}",
 			data=filedata,
 			headers={"Accept":"application/vnd.github+json",
 				"Authorization": "Bearer "+gh_token,
