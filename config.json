@@ -1,1 +1,11 @@
-{}
+{
+	"Momera": {
+		"steps":[
+			{
+				"name":"momera.exe",
+				"file":"C:\\Users\\ctih\\Momera\\build\\Temp\\tmpho1qd86v\\application\\main.exe",
+				"command":"cd C:\\Users\\ctih\\Momera && git pull origin master && pyinstaller --noconfirm --onefile --console C:/Users/ctih/Momera/src/main.py --distpath C:\\Users\\ctih\\Momera\\build\\Temp\\tmpho1qd86v\\application --workpath C:\\Users\\ctih\\Momera\\build\\Temp\\tmpho1qd86v\\build --specpath C:\\Users\\ctih\\Momera\\build\\Temp\\tmpho1qd86v"
+			}
+		]
+	}
+}

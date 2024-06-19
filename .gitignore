@@ -1,3 +1,4 @@
 example_response.txt
 .env
 testdata.zip
+src/__pycache__/
