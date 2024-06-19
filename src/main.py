@@ -11,7 +11,6 @@ dotenv.load_dotenv("../.env")
 gh_token:str=os.getenv("GH_AUTH_KEY")
 app = Flask(__name__)
 
-
 @app.route("/webhook",methods=["POST"])
 def webhook():
     tqdm.write("Webhook recieved!")
