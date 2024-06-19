@@ -3,9 +3,13 @@ import dotenv
 import requests
 import json
 import os
+import socket
 from tqdm import tqdm
 from configuration import Configurator as conf
 import compiler
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+local_ip= s.getsockname()[0]
 
 dotenv.load_dotenv("../.env")
 gh_token:str=os.getenv("GH_AUTH_KEY")
@@ -46,4 +50,4 @@ def webhook():
             else:
                 tqdm.write(f"Succesfully uploaded {file['name']}")
     return "OK",200
-app.run()
+app.run(local_ip,port=8080)
