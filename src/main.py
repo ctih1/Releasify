@@ -34,7 +34,7 @@ def webhook():
             tqdm.write(f"Loading {file['file']}...")
             with open(file["file"],"rb") as f:
                 filedata=f.read()
-            tqdm.write(f"Uploading file {file['name']} to GitHub")
+            tqdm.write(f"Uploading file {file['name']} to GitHub...")
             response=requests.post(
                 f"https://uploads.github.com/repos/{repo_username}/releases/{str(id)}/assets?name={file['name']}",
                 data=filedata,
@@ -45,7 +45,7 @@ def webhook():
                     "X-GitHub-Api-Version":"2022-11-28",
                     "Content-Type":"application/octet-stream"
                 })
-            if(response.status_code!=200):
+            if(response.status_code!=201):
                 tqdm.write(f"Upload failed: {response.json()}")
             else:
                 tqdm.write(f"Succesfully uploaded {file['name']}")
